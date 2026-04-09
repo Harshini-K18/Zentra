@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zentra - Brain Training Games for All Cognitive Skills!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="ghost.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bubble-background" aria-hidden="true">
+        <span class="bubble bubble-1"></span>
+        <span class="bubble bubble-2"></span>
+        <span class="bubble bubble-3"></span>
+        <span class="bubble bubble-4"></span>
+        <span class="bubble bubble-5"></span>
+        <span class="bubble bubble-6"></span>
+        <span class="bubble bubble-7"></span>
+        <span class="bubble bubble-8"></span>
+        <span class="bubble bubble-9"></span>
+        <span class="bubble bubble-10"></span>
+        <span class="bubble bubble-11"></span>
+        <span class="bubble bubble-12"></span>
+        <span class="bubble bubble-13"></span>
+        <span class="bubble bubble-14"></span>
+    </div>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <img class="logo" src="ghost.png" alt="Zentra logo">
+                    <span class="brand-name">Zentra</span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#games" class="nav-link">Games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#features" class="nav-link">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#statistics" class="nav-link">Statistics</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Brain Training Games for All Cognitive Skills!</h1>
+                <p class="hero-subtitle">
+                    Your brain has an enormous range of abilities, which can be divided in five major cognitive skills. 
+                    Our 10 brain games challenge you to exercise these skills. All brain games are based on trusted 
+                    psychological tasks and tests.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToGames()">
+                        <!-- <span class="btn-icon">?</span> -->
+                        Start Brain Training
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToFeatures()">
+                        <!-- <span class="btn-icon">?</span> -->
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="brain-animation">
+                    <div class="brain-core">🎮</div>
+                    <div class="brain-particles">
+                        <span class="particle">🧠</span>
+                        <span class="particle">🧠</span>
+                        <span class="particle">🧠</span>
+                        <span class="particle">🧠</span>
+                        <span class="particle">🧠</span>
+                        <span class="particle">🧠</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Zentra?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="img1.jpg" alt="Science turned into fun illustration">
+                    </div>
+                    <h3>Turning Science into Fun</h3>
+                    <p>Together with neuroscientists, our team transforms science based exercises into fun and challenging games for the brain!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="img2.jpg" alt="Daily brain training illustration">
+                    </div>
+                    <h3>Training Your Brain Without Any Effort</h3>
+                    <p>Ten minutes a day is all it takes to keep your brain in shape, just like sports strengthens your body!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="img3.jpg" alt="Everyday life improvement illustration">
+                    </div>
+                    <h3>Notice the Effect in Everyday Life</h3>
+                    <p>Improve your day-to-day cognitive skills like facial recognition, concentration, math, short-term memory and much more!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games">
+        <div class="container">
+            <h2 class="section-title">Choose Your Brain Training Game</h2>
+            <div class="games-filter" id="gamesFilter">
+                <label class="filter-chip">
+                    <input type="checkbox" value="easy" checked>
+                    <span>Easy</span>
+                </label>
+                <label class="filter-chip">
+                    <input type="checkbox" value="medium" checked>
+                    <span>Medium</span>
+                </label>
+                <label class="filter-chip">
+                    <input type="checkbox" value="hard" checked>
+                    <span>Hard</span>
+                </label>
+            </div>
+            <div class="games-grid">
+                <div class="game-card" data-game="memory" data-difficulty="easy">
+                    <div class="game-icon"><img src="assets/game-memory.svg" alt="Memory Match icon"></div>
+                    <h3>Memory Match</h3>
+                    <p>Test and improve your short-term memory by matching pairs of cards.</p>
+                    <div class="game-stats">
+                        <span class="difficulty">Easy</span>
+                        <span class="category">Memory</span>
+                    </div>
+                    <button class="game-play-btn" onclick="startGame('memory')">
+                        <span>Play Now</span>
+                       
+                    </button>
+                </div>
+                
+                <div class="game-card" data-game="math" data-difficulty="medium">
+                    <div class="game-icon"><img src="assets/game-math.svg" alt="Math Challenge icon"></div>
+                    <h3>Math Challenge</h3>
+                    <p>Sharpen your mathematical skills with quick mental calculations.</p>
+                    <div class="game-stats">
+                        <span class="difficulty">Medium</span>
+                        <span class="category">Logic</span>
+                    </div>
+                    <button class="game-play-btn" onclick="startGame('math')">
+                        <span>Play Now</span>
+                    </button>
+                </div>
+                
+                <div class="game-card" data-game="reaction" data-difficulty="easy">
+                    <div class="game-icon"><img src="assets/game-reaction.svg" alt="Reaction Time icon"></div>
+                    <h3>Reaction Time</h3>
+                    <p>Test your reflexes and improve your reaction speed.</p>
+                    <div class="game-stats">
+                        <span class="difficulty">Easy</span>
+                        <span class="category">Speed</span>
+                    </div>
+                    <button class="game-play-btn" onclick="startGame('reaction')">
+                        <span>Play Now</span>
+                        
+                    </button>
+                </div>
+                
+                <div class="game-card" data-game="pattern" data-difficulty="medium">
+                    <div class="game-icon"><img src="assets/game-pattern.svg" alt="Pattern Recognition icon"></div>
+                    <h3>Pattern Recognition</h3>
+                    <p>Train your brain to recognize and complete patterns.</p>
+                    <div class="game-stats">
+                        <span class="difficulty">Medium</span>
+                        <span class="category">Logic</span>
+                    </div>
+                    <button class="game-play-btn" onclick="startGame('pattern')">
+                        <span>Play Now</span>
+                      
+                    </button>
+                </div>
+                
+                <div class="game-card" data-game="word" data-difficulty="medium">
+                    <div class="game-icon"><img src="assets/game-word.svg" alt="Word Puzzle icon"></div>
+                    <h3>Word Puzzle</h3>
+                    <p>Enhance your vocabulary and word recognition skills.</p>
+                    <div class="game-stats">
+                        <span class="difficulty">Medium</span>
+                        <span class="category">Language</span>
+                    </div>
+                    <button class="game-play-btn" onclick="startGame('word')">
+                        <span>Play Now</span>
+                      
+                    </button>
+                </div>
+                
+                <div class="game-card" data-game="color" data-difficulty="easy">
+                    <div class="game-icon"><img src="assets/game-color.svg" alt="Color Match icon"></div>
+                    <h3>Color Match</h3>
+                    <p>Challenge your brain with color matching and cognitive flexibility.</p>
+                    <div class="game-stats">
+                        <span class="difficulty">Easy</span>
+                        <span class="category">Focus</span>
+                    </div>
+                    <button class="game-play-btn" onclick="startGame('color')">
+                        <span>Play Now</span>
+                      
+                    </button>
+                </div>
+                
+                <div class="game-card" data-game="sequence" data-difficulty="hard">
+                    <div class="game-icon"><img src="assets/game-sequence.svg" alt="Sequence Memory icon"></div>
+                    <h3>Sequence Memory</h3>
+                    <p>Remember and repeat increasingly complex sequences.</p>
+                    <div class="game-stats">
+                        <span class="difficulty">Hard</span>
+                        <span class="category">Memory</span>
+                    </div>
+                    <button class="game-play-btn" onclick="startGame('sequence')">
+                        <span>Play Now</span>
+                        
+                    </button>
+                </div>
+                
+                <div class="game-card" data-game="attention" data-difficulty="medium">
+                    <div class="game-icon"><img src="assets/game-attention.svg" alt="Attention Test icon"></div>
+                    <h3>Attention Test</h3>
+                    <p>Improve your focus and selective attention skills.</p>
+                    <div class="game-stats">
+                        <span class="difficulty">Medium</span>
+                        <span class="category">Focus</span>
+                    </div>
+                    <button class="game-play-btn" onclick="startGame('attention')">
+                        <span>Play Now</span>
+                       
+                    </button>
+                </div>
+                
+                <div class="game-card" data-game="logic" data-difficulty="hard">
+                    <div class="game-icon"><img src="assets/game-logic.svg" alt="Logic Puzzle icon"></div>
+                    <h3>Logic Puzzle</h3>
+                    <p>Solve logical problems and improve reasoning skills.</p>
+                    <div class="game-stats">
+                        <span class="difficulty">Hard</span>
+                        <span class="category">Logic</span>
+                    </div>
+                    <button class="game-play-btn" onclick="startGame('logic')">
+                        <span>Play Now</span>
+                       
+                    </button>
+                </div>
+                
+                <div class="game-card" data-game="spatial" data-difficulty="medium">
+                    <div class="game-icon"><img src="assets/game-spatial.svg" alt="Spatial Reasoning icon"></div>
+                    <h3>Spatial Reasoning</h3>
+                    <p>Enhance your spatial awareness and visualization skills.</p>
+                    <div class="game-stats">
+                        <span class="difficulty">Medium</span>
+                        <span class="category">Visual</span>
+                    </div>
+                    <button class="game-play-btn" onclick="startGame('spatial')">
+                        <span>Play Now</span>
+                      
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Zentra</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Zentra is a comprehensive brain training platform designed to help people of all ages 
+                        improve their cognitive abilities, creativity simulation through fun and engaging games. Our scientifically-backed 
+                        exercises target five major cognitive skills: memory, attention, logic, speed, and language.
+                    </p>
+                    <p>
+                        Whether you're looking to stay sharp, improve focus, or simply have fun while exercising 
+                        your brain, Zentra offers a variety of games tailored to your needs. Just 10 minutes a day 
+                        can make a significant difference in your cognitive performance.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label">Brain Games</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">5</span>
+                            <span class="stat-label">Cognitive Skills</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">10M+</span>
+                            <span class="stat-label">Happy Users</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="brain-illustration">
+                        <div class="brain-sections">
+                            <div class="section memory"><img src="bubble-chat.png" alt="Zentra logo"></div>
+                            <div class="section attention"><img src="idea.png" alt="Zentra logo"></div>
+                            <div class="section logic"><img src="loupe.png" alt="Zentra logo"></div>
+                            <div class="section speed"><img src="stopwatch.png" alt="Zentra logo"></div>
+                            <div class="section language"><img src="puzzle-piece.png" alt="Zentra logo"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="statistics" class="session-stats">
+        <div class="container">
+            <h2 class="section-title">Current Session Statistics</h2>
+            <div class="session-summary">
+                <div class="session-summary-card">
+                    <span class="session-summary-value" id="sessionGamesPlayed">0</span>
+                    <span class="session-summary-label">Games Played</span>
+                </div>
+                <div class="session-summary-card">
+                    <span class="session-summary-value" id="sessionTotalScore">0</span>
+                    <span class="session-summary-label">Total Score</span>
+                </div>
+                <div class="session-summary-card">
+                    <span class="session-summary-value" id="sessionTotalTime">0s</span>
+                    <span class="session-summary-label">Total Time</span>
+                </div>
+                <div class="session-summary-card">
+                    <span class="session-summary-value" id="sessionAverageAccuracy">0%</span>
+                    <span class="session-summary-label">Average Accuracy</span>
+                </div>
+            </div>
+            <div class="session-detail-grid" id="sessionStatsCards">
+                <div class="session-empty-card">No games played in this session yet.</div>
+            </div>
+            <div class="session-table-wrapper">
+                <table class="session-table">
+                    <thead>
+                        <tr>
+                            <th>Game</th>
+                            <th>Score</th>
+                            <th>Time</th>
+                            <th>Accuracy</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sessionStatsBody">
+                        <tr>
+                            <td colspan="4" class="session-empty">No games played in this session yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Container -->
+    <div id="gameContainer" class="game-container hidden">
+        <div class="game-header">
+            <button class="back-btn" onclick="exitGame()">
+                <span>⬅️</span>
+                <span>Back to Games</span>
+            </button>
+            <div class="game-controls">
+                <button id="pauseGameBtn" class="control-btn" onclick="pauseGame()">Pause</button>
+                <button id="playGameBtn" class="control-btn" onclick="resumeGame()">Play</button>
+                <button id="resetGameBtn" class="control-btn control-btn-reset" onclick="resetCurrentGame()">Reset</button>
+            </div>
+            <div class="game-info">
+                <div class="lives-display">
+                    <span class="hearts">
+                        <span class="heart">❤️</span>
+                        <span class="heart">❤️</span>
+                        <span class="heart">❤️</span>
+                    </span>
+                    <span class="lives-text">Lives: <span id="livesCount">5</span></span>
+                </div>
+                <div class="score-display">
+                    <span class="score-icon">🏆</span>
+                    <span class="score-text">Score: <span id="scoreCount">0</span></span>
+                </div>
+                <div class="timer-display">
+                    <span class="timer-icon">⌛</span>
+                    <span class="timer-text">Time: <span id="timeCount">0</span>s</span>
+                </div>
+            </div>
+        </div>
+        <div class="game-content" id="gameContent">
+            <!-- Game content will be loaded here -->
+        </div>
+        <div id="gamePausedOverlay" class="game-paused-overlay hidden">
+            <div class="game-paused-card">
+                <h3>Game Paused</h3>
+                <p>Your progress is safe. Press Play to continue or Reset to start again.</p>
+            </div>
+        </div>
+        <div class="game-corner-badge">
+            <img src="charr.png" alt="Game character">
+        </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="gameOverModal" class="game-over-modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Game Over!</h2>
+                <p>Great job! Here are your results:</p>
+                <div style="margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <div style="text-align: left;">
+                            <strong>Player:</strong> <span id="playerName">Player</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <strong>Level:</strong> <span id="playerLevel">1</span> | 
+                            <strong>Total XP:</strong> <span id="totalXP">0</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <div style="text-align: left;">
+                            <strong>Games Played:</strong> <span id="gamesPlayed">0</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <strong>Streak:</strong> <span id="playerStreak">0</span> days
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-stats">
+                <div class="stat-card">
+                    <span class="stat-icon"><img src="assets/stat-score.svg" alt="Score icon"></span>
+                    <span class="stat-value" id="finalScore">0</span>
+                    <span class="stat-label">Final Score</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon"><img src="assets/stat-time.svg" alt="Time icon"></span>
+                    <span class="stat-value" id="finalTime">0s</span>
+                    <span class="stat-label">Time Taken</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon"><img src="assets/stat-accuracy.svg" alt="Accuracy icon"></span>
+                    <span class="stat-value" id="finalAccuracy">0%</span>
+                    <span class="stat-label">Accuracy</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="playAgain()">
+                    
+                    Play Again
+                </button>
+                <button class="btn btn-secondary" onclick="nextGame()">
+                    
+                    Next Game
+                </button>
+                <button class="btn btn-outline" onclick="goHome()">
+                    
+                    Go Home
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="feedbackModal" class="feedback-modal hidden">
+        <div class="modal-overlay" onclick="hideFeedbackModal()"></div>
+        <div class="feedback-content">
+            <div class="feedback-badge" id="feedbackBadge">Correct</div>
+            <h3 id="feedbackTitle">Nice work!</h3>
+            <p id="feedbackMessage">Your answer has been recorded.</p>
+            <button class="btn btn-primary" onclick="hideFeedbackModal()">Continue</button>
+        </div>
+    </div>
+
+    <div id="sessionTimeoutModal" class="feedback-modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="feedback-content">
+            <div class="feedback-badge error">Time Limit</div>
+            <h3>Session time limit reached</h3>
+            <p>Your 15-minute session is over. You can ignore this message and keep playing, or close the site now.</p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="ignoreSessionTimeout()">Ignore</button>
+                <button class="btn btn-primary" onclick="closeSessionSite()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-corner-character">
+        <img src="char1.png" alt="Main page character">
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img class="logo" src="ghost.png" alt="Zentra logo">
+                    <span class="brand-name">Zentra</span>
+                    <p>You only have one brain, take good care of it!</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Games</h4>
+                        <ul>
+                            <li><a href="#games">All Games</a></li>
+                           
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Learn More</h4>
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#features">Benefits</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Zentra. All rights reserved.
+                    <br> Created by Spandana B N , Ankitha J , Nishanth K.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
