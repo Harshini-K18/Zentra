@@ -1756,9 +1756,9 @@ function startColorRound() {
                         cursor: pointer;
                         transition: all 0.3s ease;
                         font-weight: 600;
-                        color: white;
+                        color: transparent;
                     " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                        ${color.name}
+                        
                     </button>
                 `).join('')}
             </div>
@@ -1959,34 +1959,38 @@ function checkSequence() {
 // Attention Test Game
 function initAttentionGame() {
     gameState.gameData = {
-        targetSymbol: '?',
+        symbolPool: ['A', 'H', 'K', 'M', 'N', 'V', 'W', 'X', 'Y', 'Z'],
+        targetSymbol: 'A',
         round: 1,
-        symbols: []
+        symbols: [],
+        foundTargets: 0,
+        totalTargets: 0
     };
     
     startAttentionRound();
 }
 
 function startAttentionRound() {
-    const symbols = ['?', '?', '?', '?', '?', '?', '?', '?', '?'];
-    const targetCount = Math.max(1, 5 - gameState.gameData.round);
-    
+    const { symbolPool, round } = gameState.gameData;
+    const targetIndex = (round - 1) % symbolPool.length;
+    const targetSymbol = symbolPool[targetIndex];
+    const distractorSymbols = symbolPool.filter(symbol => symbol !== targetSymbol);
+    const targetCount = Math.min(8, 2 + round);
+
+    gameState.gameData.targetSymbol = targetSymbol;
     gameState.gameData.symbols = [];
-    
-    // Add target symbols
+    gameState.gameData.foundTargets = 0;
+    gameState.gameData.totalTargets = targetCount;
+
     for (let i = 0; i < targetCount; i++) {
-        gameState.gameData.symbols.push(gameState.gameData.targetSymbol);
+        gameState.gameData.symbols.push(targetSymbol);
     }
-    
-    // Add distractor symbols
+
     while (gameState.gameData.symbols.length < 20) {
-        const distractor = symbols[Math.floor(Math.random() * symbols.length)];
-        if (distractor !== gameState.gameData.targetSymbol) {
-            gameState.gameData.symbols.push(distractor);
-        }
+        const distractor = distractorSymbols[Math.floor(Math.random() * distractorSymbols.length)];
+        gameState.gameData.symbols.push(distractor);
     }
-    
-    // Shuffle symbols
+
     gameState.gameData.symbols.sort(() => Math.random() - 0.5);
     
     showAttentionGrid();
@@ -2029,7 +2033,7 @@ function showAttentionGrid() {
             <div style="
                 font-size: 1rem;
                 color: #6C757D;
-            ">Round ${gameState.gameData.round} - Found: <span id="foundCount">0</span> / ${gameState.gameData.symbols.filter(s => s === gameState.gameData.targetSymbol).length}</div>
+            ">Round ${gameState.gameData.round} - Found: <span id="foundCount">0</span> / ${gameState.gameData.totalTargets}</div>
         </div>
     `;
     
@@ -2063,13 +2067,11 @@ function checkAttentionSymbol(cell, symbol) {
     if (symbol === gameState.gameData.targetSymbol) {
         cell.style.background = '#A6E3A1';
         cell.style.color = 'white';
+        cell.dataset.status = 'found';
         addScore(5);
         updateFoundCount();
-        
-        const totalTargets = gameState.gameData.symbols.filter(s => s === gameState.gameData.targetSymbol).length;
-        const foundTargets = document.querySelectorAll('#attentionGrid button[style*="A6E3A1"]').length;
-        
-        if (foundTargets === totalTargets) {
+
+        if (gameState.gameData.foundTargets === gameState.gameData.totalTargets) {
             scheduleGameTask(() => {
                 gameState.gameData.round++;
                 if (gameState.gameData.round <= 8) {
@@ -2087,8 +2089,12 @@ function checkAttentionSymbol(cell, symbol) {
 }
 
 function updateFoundCount() {
-    const foundCount = document.querySelectorAll('#attentionGrid button[style*="A6E3A1"]').length;
-    document.getElementById('foundCount').textContent = foundCount;
+    gameState.gameData.foundTargets += 1;
+
+    const foundCount = document.getElementById('foundCount');
+    if (foundCount) {
+        foundCount.textContent = gameState.gameData.foundTargets;
+    }
 }
 
 // Logic Puzzle Game
